@@ -40,6 +40,11 @@ monitorextra(me::Coordinator)  = (
     root =!isnothing(me.root) ? me.root.box : nothing
 )
 
+monitorprojection(::Type{Coordinator}) = JS("{
+    geometry: new THREE.SphereBufferGeometry(25, 7, 7),
+    color: 0xcb3c33
+}")
+
 # Non-standard Debug messages handled by the Coordinator (See also module CircoCore.Debug)
 struct RunSlow a::UInt8 end# TODO fix MsgPack to allow empty structs
 registermsg(RunSlow; ui=true)
